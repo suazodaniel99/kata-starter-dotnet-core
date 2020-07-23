@@ -24,6 +24,15 @@ namespace Kata
             }
             
             var numbers = content.Split(separator, StringSplitOptions.None).Select(int.Parse);
+
+            foreach (var number in numbers)
+            {
+                if (number < 0)
+                {
+                    throw new Exception("negatives not allowed: " + number);
+                }
+            }
+            
             return numbers.Sum();
         }
     }
