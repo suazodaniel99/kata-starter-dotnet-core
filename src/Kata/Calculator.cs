@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Net.Http.Headers;
 
 namespace Kata
@@ -10,15 +11,8 @@ namespace Kata
             {
                 return 0;                
             }
-            
-            string[] numbers = input.Split(",");
-
-            if (numbers.Length == 1)
-            {
-                return int.Parse(input);
-            }
-
-            return int.Parse(numbers[0]) + int.Parse(numbers[1]);
+            var numbers = input.Split(",").Select(int.Parse);
+            return numbers.Sum();
         }
     }
 }
