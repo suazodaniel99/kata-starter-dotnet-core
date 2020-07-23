@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace Kata
 {
     public class Calculator
@@ -8,8 +10,15 @@ namespace Kata
             {
                 return 0;                
             }
+            
+            string[] numbers = input.Split(",");
 
-            return int.Parse(input);
+            if (numbers.Length == 1)
+            {
+                return int.Parse(input);
+            }
+
+            return int.Parse(numbers[0]) + int.Parse(numbers[1]);
         }
     }
 }
